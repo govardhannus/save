@@ -6,6 +6,7 @@ import {
 } from 'react-native';
 import ActionButton from 'react-native-action-button';
 import { Dropdown } from 'react-native-material-dropdown';
+//import {Button, ThemeProvider} from 'react-native-material-ui'
 //import Icon from 'react-native-vector-icons/Ionicons';
 //import QRCodeScanner from 'react-native-qrcode-scanner';
 
@@ -22,7 +23,7 @@ export default class setting extends Component<Props> {
             active: 'true'
         };
         this.updateUser = this.updateUser.bind(this)
-        this.buttonPressed = this.buttonPressed.bind(this)
+       // this.buttonPressed = this.buttonPressed.bind(this)
     }
 
     onSuccess(e) {
@@ -53,6 +54,7 @@ export default class setting extends Component<Props> {
     }
 
     render() {
+        console.log(this.props,'propssettings')
         let data = [{
             value: '10 points',
         }, {
@@ -60,12 +62,12 @@ export default class setting extends Component<Props> {
         }, {
             value: '30 points',
         }];
-        //const {navigate} = this.props.navigation;
+        const {navigate} = this.props.navigation;
         return (
          <Container>
              <Header>
                  <Left>
-                     <Button onPress={()=>this.props.navigation.navigate('Login')}>
+                     <Button onPress={()=>this.props.navigation.openDrawer()}>
                          <Icon name="ios-menu"/>
                      </Button>
                  </Left>
@@ -75,9 +77,12 @@ export default class setting extends Component<Props> {
                     label='Points'
                     data={data}
                 />
+                <TouchableOpacity onPress={() => navigate('Login')}>
+                    <Text> HI </Text>
+                </TouchableOpacity>
                 <ActionButton
                     buttonColor="rgba(231,76,60,1)"
-                    onPress={() => navigate('Login')}
+                    onPress={this.buttonPressed.bind(this)}
                 />
             </View>
          </Container>

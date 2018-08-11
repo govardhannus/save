@@ -8,7 +8,7 @@ import {DrawerNavigator} from 'react-navigation'
 import setting from './setting'
 
 
-export default class customerScreen extends Component {
+export default class navigators extends Component {
 
     static navigationOptions = ({navigation}) => {
         const {params = {}} = navigation.state;
@@ -17,6 +17,7 @@ export default class customerScreen extends Component {
         };
     };
     render() {
+        console.log(this.props,'propsnavigators')
         const {navigate} = this.props.navigation;
         return (
                 <MyApp/>

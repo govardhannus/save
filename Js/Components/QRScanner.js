@@ -13,25 +13,19 @@ export default class QRScanner extends Component {
 
         };
     }
-
-
     static navigationOptions = ({navigation}) => {
         const {params = {}} = navigation.state;
         return {
-            //header: null
+            header: null
         };
     };
 
     render() {
         return (
 
-            <View style={styles.maincontainer}>
+            <View>
                 <Text>Scanner</Text>
             </View>
         )
     }
 }
-
-const styles = StyleSheet.create({
-
-});
